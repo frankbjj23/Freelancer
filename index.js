@@ -26,4 +26,19 @@ function randomFreelancer() {
     rate: randomRate(),
   };
 }
-console.log(randomFreelancer());
+//console.log(randomFreelancer());
+
+//2. Initialize a state variable to an array of `NUM_FREELANCERS` freelancer objects.
+const freelancers = Array.from({ length: NUM_FREELANCERS }, randomFreelancer);
+
+// console.log(freelancers.length);
+// console.log(freelancers[0]);
+
+//3. Write a function that returns the average rate of all freelancers in state.
+function averageRateFreelancers() {
+  const totalRateSum = freelancers.reduce((sum, freelancer) => {
+    return sum + freelancer.rate;
+  }, 0);
+  return totalRateSum / freelancers.length;
+}
+console.log(averageRateFreelancers());
